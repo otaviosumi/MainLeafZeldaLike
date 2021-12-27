@@ -16,15 +16,11 @@ public class PlayerController : MonoBehaviour
 	public Vector3 velocity;
 	public bool isGrounded;
 
-    private void Start()
-    {
-        
-    }
-
     void Update()
 	{
 		isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-		
+
+
 		if (isGrounded && velocity.y < 0)
 		{
 			velocity.y = -2f;
@@ -64,6 +60,11 @@ public class PlayerController : MonoBehaviour
 		
 
 		controller.Move(move * speed * Time.deltaTime);
+
+        if (Input.GetKey("f"))
+        {
+			Debug.Log("Pressionou F, quer agarrar caixas");
+        }
 
 		if (Input.GetButtonDown("Jump") && isGrounded)
 		{
