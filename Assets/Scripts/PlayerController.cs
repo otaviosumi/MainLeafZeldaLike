@@ -16,18 +16,25 @@ public class PlayerController : MonoBehaviour
 	public Vector3 velocity;
 	public bool isGrounded;
 
-	void Update()
+    private void Start()
+    {
+        
+    }
+
+    void Update()
 	{
 		isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
+		
 		if (isGrounded && velocity.y < 0)
 		{
 			velocity.y = -2f;
-			playerAnimator.SetTrigger("Landed");
+			//playerAnimator.SetTrigger("Landed");
 		}
         
 		float x = Input.GetAxis("Horizontal");
 		float z = Input.GetAxis("Vertical");
+
+		//Debug.Log("X: " + x + "Z: " + z);
 
         #region Animations tags
         int Zz = 0;
@@ -49,6 +56,9 @@ public class PlayerController : MonoBehaviour
 		playerAnimator.SetInteger("Horizontal", Xx);
 		playerAnimator.SetFloat("horizontal", x);
 		playerAnimator.SetFloat("vertical", z);
+
+		playerAnimator.SetBool("airborne", !isGrounded);
+
         #endregion
 
         Vector3 move = transform.right * x + transform.forward * z;
@@ -58,7 +68,7 @@ public class PlayerController : MonoBehaviour
 
 		if (Input.GetButtonDown("Jump") && isGrounded)
 		{
-			playerAnimator.SetTrigger("Jump");
+			//playerAnimator.SetTrigger("Jump");
 			velocity.y = Mathf.Sqrt(jumpHeight * (-2f) * gravity);
 		}
 
