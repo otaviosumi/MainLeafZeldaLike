@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
 		if (isGrounded && velocity.y < 0)
 		{
 			velocity.y = -2f;
-			//playerAnimator.SetTrigger("Landed");
 		}
         
 		float x = Input.GetAxis("Horizontal");
@@ -68,7 +67,6 @@ public class PlayerController : MonoBehaviour
 
 		if (Input.GetButtonDown("Jump") && isGrounded)
 		{
-			//playerAnimator.SetTrigger("Jump");
 			velocity.y = Mathf.Sqrt(jumpHeight * (-2f) * gravity);
 		}
 
