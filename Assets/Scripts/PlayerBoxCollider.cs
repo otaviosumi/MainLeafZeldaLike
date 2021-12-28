@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerBoxCollider : MonoBehaviour
 {
     public Transform boxCheck;
-    public GameObject box;
+    //public GameObject box;
     public float boxDistance = 0.4f;
 
     public GameObject boxToMove = null;
@@ -30,7 +30,8 @@ public class PlayerBoxCollider : MonoBehaviour
                 //boxToMove.GetComponent<Collider>().enabled = false;
                 boxToMove.transform.parent = boxCheck;
                 boxToMove.transform.localRotation = Quaternion.identity;
-                boxToMove.transform.localPosition = new Vector3(0.75f, -0.75f, 0.75f);
+                Vector3 defaultPos = new Vector3(boxToMove.transform.localScale.x / 2f, -boxToMove.transform.localScale.x / 2f, boxToMove.transform.localScale.z / 2f);
+                boxToMove.transform.localPosition = defaultPos;
             }
         }
 

@@ -57,14 +57,8 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         Vector3 move = transform.right * x + transform.forward * z;
-		
 
 		controller.Move(move * speed * Time.deltaTime);
-
-        if (Input.GetKey("f"))
-        {
-			Debug.Log("Pressionou F, quer agarrar caixas");
-        }
 
 		if (Input.GetButtonDown("Jump") && isGrounded)
 		{
