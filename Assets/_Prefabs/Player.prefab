@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 6144652746102132258}
   - component: {fileID: 6144652746102132261}
   - component: {fileID: 6144652746102132259}
+  - component: {fileID: 641925807878988740}
   - component: {fileID: 6144652746102132260}
   m_Layer: 0
   m_Name: Player
@@ -232,9 +233,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxCheck: {fileID: 6144652745425819377}
-  box: {fileID: 0}
   boxDistance: 0.4
   boxToMove: {fileID: 0}
+--- !u!114 &641925807878988740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144652746102132263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb40f58b2ada6f4b8eec0b5b35fcb56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &6144652746102132260
 CharacterController:
   m_ObjectHideFlags: 0
