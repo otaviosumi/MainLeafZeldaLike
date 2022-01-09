@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	public GameObject PlayerModel;
 	public CharacterController controller;
 	public Animator playerAnimator;
 
@@ -26,39 +27,65 @@ public class PlayerController : MonoBehaviour
 			velocity.y = -2f;
 		}
         
-		float x = Input.GetAxis("Horizontal");
-		float z = Input.GetAxis("Vertical");
+		float x = Input.GetAxisRaw("Horizontal");
+		float z = Input.GetAxisRaw("Vertical");
 
 		//Debug.Log("X: " + x + "Z: " + z);
 
         #region Animations tags
-        int Zz = 0;
-		int Xx = 0;
-		if(z > 0)
+        if(z != 0 || x != 0)
         {
-			Zz = 1;
-        }else if (z < 0)
-        {
-			Zz = -1;
-        }if(x > 0)
-        {
-			Xx = 1;
-        }else if (x < 0)
-        {
-			Xx = -1;
+			if(z > 0)
+            {
+				if (x > 0)
+				{
+					PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(0f, 45, 0f));
+				}
+				if (x < 0)
+				{
+					PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(0f, 315f, 0f));
+				}
+				if(x == 0)
+                {
+					PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                }
+            }else if(z < 0)
+            {
+				if (x > 0)
+				{
+					PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(0f, 135f, 0f));
+				}
+				if (x < 0)
+				{
+					PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(0f, 225f, 0f));
+				}
+				if (x == 0)
+				{
+					PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+				}
+            }else if(x > 0)
+            {
+				PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(0f, 90f, 0f));
+            }else if(x < 0)
+            {
+				PlayerModel.transform.localRotation = Quaternion.Euler(new Vector3(0f, 270f, 0f));
+            }
+			playerAnimator.SetInteger("Vertical", 1);
         }
-		playerAnimator.SetInteger("Vertical", Zz);
-		playerAnimator.SetInteger("Horizontal", Xx);
-		playerAnimator.SetFloat("horizontal", x);
-		playerAnimator.SetFloat("vertical", z);
+        else
+        {
+			PlayerModel.transform.localRotation = Quaternion.Euler(Vector3.zero);
+			playerAnimator.SetInteger("Vertical", 0);
+		}
 
 		playerAnimator.SetBool("airborne", !isGrounded);
 
         #endregion
 
         Vector3 move = transform.right * x + transform.forward * z;
-
-		controller.Move(move * speed * Time.deltaTime);
+		//Debug.Log(move);
+		//controller.Move(move * speed * Time.deltaTime);
+		controller.SimpleMove(move * speed);
 
 		if (Input.GetButtonDown("Jump") && isGrounded)
 		{

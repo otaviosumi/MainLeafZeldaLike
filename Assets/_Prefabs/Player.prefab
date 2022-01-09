@@ -208,9 +208,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee297d438f0d944bb7711d094af1f0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerModel: {fileID: 0}
   controller: {fileID: 6144652746102132260}
   playerAnimator: {fileID: 9130632709754407208}
-  speed: 4
+  speed: 5
   gravity: -9.81
   jumpHeight: 1.8
   groundCheck: {fileID: 6144652745963971828}
@@ -247,6 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb40f58b2ada6f4b8eec0b5b35fcb56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crouchLocalScale: {x: 0, y: 0, z: 0}
+  playerObject: {fileID: 0}
+  crouchHeight: 0
+  crouchYSize: 0
+  crouchCharacterController: {fileID: 0}
 --- !u!143 &6144652746102132260
 CharacterController:
   m_ObjectHideFlags: 0
