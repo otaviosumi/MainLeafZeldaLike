@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-			PlayerModel.transform.localRotation = Quaternion.Euler(Vector3.zero);
+			//PlayerModel.transform.localRotation = Quaternion.Euler(Vector3.zero);
 			playerAnimator.SetInteger("Vertical", 0);
 		}
 

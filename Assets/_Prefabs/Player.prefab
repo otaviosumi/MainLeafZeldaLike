@@ -213,7 +213,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 9130632709754407208}
   speed: 5
   gravity: -9.81
-  jumpHeight: 1.8
+  jumpHeight: 2.5
   groundCheck: {fileID: 6144652745963971828}
   groundDistance: 0.2
   groundMask:
