@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class RoomFloor : MonoBehaviour
 {
     public UnityEvent enterFixedCamRoom;
-    public UnityEvent exitFixedCamRoom;
+    //public UnityEvent exitFixedCamRoom;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,9 +17,9 @@ public class RoomFloor : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    /*private void OnTriggerExit(Collider other)
     {
         Debug.Log("Exiting room...");
         exitFixedCamRoom.Invoke();
-    }
+    }*/
 }

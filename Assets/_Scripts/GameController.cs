@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     {
         //GameObject cameraObject = Camera.main.gameObject;
         cameraObject.GetComponent<MouseLook>().enabled = false;
-        cameraObject.GetComponent<Camera>().fieldOfView = 90;
+        cameraObject.GetComponent<Camera>().fieldOfView = 60;
         cameraObject.transform.parent = cameraFixedPosition;
         cameraObject.transform.localPosition = Vector3.zero;
         cameraObject.transform.localRotation = Quaternion.identity;
